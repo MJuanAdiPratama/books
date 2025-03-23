@@ -129,3 +129,48 @@ Future count() async {
 #### Demo
 
 <img src="images/soal5.gif" alt="Capture no 5" width="300">
+
+### Soal no 6
+
+#### Langkah 5 dan 6
+
+```dart
+  calculate2() async {
+    try {
+      await new Future.delayed(const Duration(seconds: 5));
+      completer.complete(42);
+    } catch (_) {
+      completer.completeError({});
+    }
+  }
+
+  getNumber()
+    .then((value) {
+        setState(() {
+            result = value.toString();
+        });
+    })
+    .catchError((e) {
+        result = 'An error occured';
+    });
+```
+
+#### Penjelasan:
+
+- **Perbedaan**:
+
+1. Penanganan Error
+
+    - Sebelumnya: Tidak ada penanganan error
+    - Sekarang: Menggunakan try-catch untuk menangkap error yang mungkin terjadi
+
+2. Complete Error
+
+    - Sebelumnya: Hanya bisa menyelesaikan dengan hasil yang sukses, seperti completer.complete(42).
+    - Sekarang: Selain menyelesaikan dengan hasil sukses, juga bisa menyelesaikan dengan error menggunakan completer.completeError().
+
+    - **Fungsi getNumber()**: jika terjadi kesalahan di fungsi calculate(), error tersebut akan diteruskan (propagate) dan ditangkap. Jika ada error, pesan kesalahan akan ditampilkan di antarmuka pengguna (UI).
+
+#### Demo
+
+<img src="images/soal5.gif" alt="Capture no 6" width="300">
