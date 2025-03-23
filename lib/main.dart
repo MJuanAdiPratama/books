@@ -45,7 +45,7 @@ class _FuturePageState extends State<FuturePage> {
               child: const Text('Go'),
               onPressed: () {
                 returnFG();
-                
+
                 // getNumber()
                 //     .then((value) {
                 //       setState(() {
@@ -138,6 +138,7 @@ class _FuturePageState extends State<FuturePage> {
   }
 
   void returnFG() {
+    // // Langkah 1
     // FutureGroup<int> futureGroup = FutureGroup<int>();
     // futureGroup.add(returnOneAsync());
     // futureGroup.add(returnTwoAsync());
@@ -153,6 +154,7 @@ class _FuturePageState extends State<FuturePage> {
     //   });
     // });
 
+    // Langkah 4
     final futures = Future.wait<int>([
       returnOneAsync(),
       returnTwoAsync(),

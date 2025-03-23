@@ -180,3 +180,46 @@ Future count() async {
 #### Demo
 
 <img src="images/soal4.gif" alt="Capture no 6" width="300">
+
+### Soal no 8
+
+#### Perbedaaan Langkah 1 & 4
+
+```dart
+    // Langkah 1
+    FutureGroup<int> futureGroup = FutureGroup<int>();
+    futureGroup.add(returnOneAsync());
+    futureGroup.add(returnTwoAsync());
+    futureGroup.add(returnThreeAsync());
+    futureGroup.close();
+    futureGroup.future.then((List<int> value) {
+      int total = 0;
+      for (var element in value) {
+        total += element;
+      }
+      setState(() {
+        result = total.toString();
+      });
+    });
+
+    // Langkah 4
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
+```
+
+#### Penjelasan:
+
+- **Perbedaan**:
+
+1. Fleksibilitas:
+
+- FutureGroup: Bisa menambah Future secara dinamis
+- Future.wait: Future harus ditentukan saat deklarasi
+
+2. Sintaks:
+
+- FutureGroup: Perlu inisialisasi, penambahan, dan penutupan
+- Future.wait: Lebih ringkas dengan satu baris code
