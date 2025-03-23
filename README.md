@@ -174,3 +174,9 @@ Future count() async {
 #### Demo
 
 <img src="images/soal5.gif" alt="Capture no 6" width="300">
+
+### Soal no 7
+
+#### Demo
+
+<img src="images/soal4.gif" alt="Capture no 6" width="300">
