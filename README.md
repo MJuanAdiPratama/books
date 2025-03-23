@@ -100,3 +100,32 @@ Future count() async {
 #### Demo
 
 <img src="images/soal4.gif" alt="Capture no 4" width="300">
+
+### Soal no 5
+
+#### Langkah 2
+
+```dart
+  late Completer completer;
+
+  Future getNumber() {
+    completer = Completer<int>();
+    calculate();
+    return completer.future;
+  }
+
+  Future calculate() async {
+    await Future.delayed(const Duration(seconds: 5));
+    completer.complete(42);
+  }
+```
+
+#### Penjelasan:
+
+- **late Completer**: Menggunakan late karena akan diinisialisasi nanti. Completer untuk mengontrol penyelesaian dari Future secara manual.
+- **getNumber()**: Membuat objek integer untuk menangkap hasil yang akan diterima, memanggil fungsi calculate untuk memulai proses perhitungan, mengembalikan future yang akan diselesaikan setelah proses selesai.
+- **calculate()**: Menunggu 5 detik menggunakan Future.delayed(), setelah itu completer.complete(42) diaktifkan, yang berarti future di dalam getNumber() selesai dan menghasilkan angka 42.
+
+#### Demo
+
+<img src="images/soal5.gif" alt="Capture no 5" width="300">
