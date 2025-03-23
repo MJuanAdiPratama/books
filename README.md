@@ -229,3 +229,47 @@ Future count() async {
 #### Demo
 
 <img src="images/soal9.gif" alt="Capture no 6" width="300">
+
+### Soal no 10
+
+#### Hasil running
+
+- Ketika tombol "Go" diklik:
+
+    1. Akan menunggu delay 2 detik
+    2. Menampilkan pesan error: "Exception: Something terrible happened!"
+    3. Mencetak complete di console
+
+#### Perbedaan langkah  1 dan 4
+
+**Langkah 1: returnError()**
+
+```dart
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something terrible happened!');
+  }
+```
+
+- Hanya membuat Future yang akan throw exception
+- Tidak ada penanganan error
+
+**Langkah 4: handleError()**
+
+```dart
+  Future handleError() async {
+    try {
+      await returnError();
+    } catch (error) {
+      setState(() {
+        result = error.toString();
+      });
+    } finally {
+      print('Complete');
+    }
+  }
+```
+
+- Menangkap error dari returnError() menggunakan try-catch
+- Menampilkan pesan error ke UI menggunakan setState
+- Memiliki block finally yang akan selalu dieksekusi
