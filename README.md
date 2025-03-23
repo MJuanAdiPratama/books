@@ -236,9 +236,9 @@ Future count() async {
 
 - Ketika tombol "Go" diklik:
 
-    1. Akan menunggu delay 2 detik
-    2. Menampilkan pesan error: "Exception: Something terrible happened!"
-    3. Mencetak complete di console
+1. Akan menunggu delay 2 detik
+2. Menampilkan pesan error: "Exception: Something terrible happened!"
+3. Mencetak complete di console
 
 #### Perbedaan langkah  1 dan 4
 
