@@ -223,3 +223,9 @@ Future count() async {
 
 - FutureGroup: Perlu inisialisasi, penambahan, dan penutupan
 - Future.wait: Lebih ringkas dengan satu baris code
+
+### Soal no 9
+
+#### Demo
+
+<img src="images/soal9.gif" alt="Capture no 6" width="300">

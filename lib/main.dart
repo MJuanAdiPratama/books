@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, avoid_print
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart';
@@ -44,7 +44,20 @@ class _FuturePageState extends State<FuturePage> {
             ElevatedButton(
               child: const Text('Go'),
               onPressed: () {
-                returnFG();
+                returnError()
+                    .then((value) {
+                      setState(() {
+                        result = 'Succes';
+                      });
+                    })
+                    .catchError((onError) {
+                      setState(() {
+                        result = onError.toString();
+                      });
+                    })
+                    .whenComplete(() => print('complete'));
+
+                // returnFG();
 
                 // getNumber()
                 //     .then((value) {
@@ -169,5 +182,10 @@ class _FuturePageState extends State<FuturePage> {
         result = total.toString();
       });
     });
+  }
+
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something terrible happened!');
   }
 }
