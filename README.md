@@ -54,3 +54,49 @@ Implementasi pencarian buku menggunakan Google Books API.
 #### Demo
 
 <img src="images/soal3.gif" alt="Capture no 3" width="300">
+
+### Soal no 4
+
+#### Langkah 1
+
+```dart
+Future<int> returnOneAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 1;
+  }
+
+Future<int> returnTwoAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 2;
+  }
+
+Future<int> returnThreeAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 3;
+  }
+```
+
+#### Langkah 2
+
+```dart
+Future count() async {
+    int total = 0;
+    total = await returnOneAsync();
+    total += await returnTwoAsync();
+    total += await returnThreeAsync();
+    setState(() {
+      result = total.toString();
+    });
+  }
+```
+
+#### Penjelasan:
+
+- **Fungsi returnOneAsync()**: Untuk mengembalikan nilai 1 setelah 3 detik.
+- **Fungsi returnTwoAsync()**: Untuk mengembalikan nilai 2 setelah 3 detik.
+- **Fungsi returnThreeAsync()**: Untuk mengembalikan nilai 3 setelah 3 detik.
+- **Fungsi count() async**:  Untuk menghitung total dari ketiga angka tersebut, Setelah total dihitung hasilnya diubah menjadi teks dan ditampilkan di UI menggunakan setState(), jadi total waktu proses 9 detik.
+
+#### Demo
+
+<img src="images/soal4.gif" alt="Capture no 4" width="300">
