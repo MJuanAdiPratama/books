@@ -273,3 +273,18 @@ Future count() async {
 - Menangkap error dari returnError() menggunakan try-catch
 - Menampilkan pesan error ke UI menggunakan setState
 - Memiliki block finally yang akan selalu dieksekusi
+
+### Soal no 11
+Menambahkan nama panggilan tiap properti title sebagai identitas pekerjaan.
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Current Position Juan')),
+      body: Center(
+        child: Text(myPosition),
+        ),
+    );
+  }
+```
