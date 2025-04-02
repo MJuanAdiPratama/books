@@ -288,3 +288,28 @@ Menambahkan nama panggilan tiap properti title sebagai identitas pekerjaan.
     );
   }
 ```
+
+### Soal no 12
+
+```dart
+// Menambahkan delay 3 detik untuk loading
+  await Future.delayed(const Duration(seconds: 3));
+```
+
+- Apakah anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+
+Iyaa, koordinat GPS didapatkan ketika menjalankan aplikasi di browser karena beberapa alasan :
+
+1. Package Geolocator Web Support
+
+- Package geolocator sebenarnya memiliki dukungan web melalui plugin geolocator web
+- Plugin ini secara otomatis menggunakan HTML5 Geolocation API ketika dijalankan di browser
+
+2. Browser Permission
+
+- Browser mendukung HTML5 Geolocation API
+- Ketika aplikasi meminta akses lokasi, browser akan menampilkan pesan permission ke user, jika user mengizinkan koordinat GPS bisa didapatkan
+
+#### Demo
+
+<img src="images/soal12.gif" alt="Capture no 6" width="300">
