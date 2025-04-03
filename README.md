@@ -362,3 +362,22 @@ child: FutureBuilder(
 #### Demo
 
 <img src="images/soal13.gif" alt="Capture no 6" width="300">
+
+### Soal no 14
+
+Apakah ada perbedaan UI dengan langkah sebelumnya? mengapa demikian?
+
+Tidak ada perubahan UI jika tidak ada error, mengapa tidak ada perubahan :
+
+1. Tampilan normal
+
+- Jika tidak ada error, tidak ada perbedaan UI dan tetap menampilkan koordinat lokasi
+
+2. Tampilan error
+
+- Sebelumnya menampilkan error system, sekarang menampilkan pesan error "Something terrible happened!"
+- Menangani error dengan baik dan memberikan feedback yang jelas ke user
+
+#### Demo
+
+<img src="images/soal13.gif" alt="Capture no 6" width="300">
