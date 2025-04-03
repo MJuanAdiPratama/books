@@ -396,3 +396,74 @@ Mengganti dengan warna favorit
 ```dart
   Color color = Colors.cyan.shade700;
 ```
+
+### Soal no 16
+
+Cobalah klik setiap button, apa yang terjadi? mengapa demikian?
+
+Yang terjadi saat klik button :
+
+1. First Screen Button (change color)
+
+- Saat di klik, navigasi ke halaman kedua
+- Background screen pertama masih terlihat di belakang
+- Menggunakan navigator.push()
+
+2. Second Screen Button
+
+- Setiap button warna ketika di klik akan mengubah warna background First Screen lalu menutup Second Screen dan kembali ke First Screen dengan warna baru
+
+```dart
+  Future _navigateAndGetColor(BuildContext context) async {
+    color =
+        await Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const NavigationSecond()),
+        ) ??
+        Colors.blue;
+        setState(() {
+          
+        });
+  }
+```
+
+1. Mekanisme Navigasi
+
+- Navigator.push() menambah route baru ke stack
+- await menunggu nilai return dari Second Screen
+- setState() memperbarui UI dengan warna baru
+
+2. Data Passing
+
+- Warna dipilih di Second Screen
+- Dikirim kembali ke First Screen menggunakan Navigator.pop(color)
+- First Screen menerima dan mengupdate state
+
+Berikut untuk mengganti 3 warna dengan warna favorit pada langkah ke 5 :
+
+```dart
+  children: [
+    ElevatedButton(
+      child: const Text('Red'),
+      onPressed: () {
+        color = Colors.red.shade700;
+        Navigator.pop(context, color);
+      }),
+    ElevatedButton(
+      child: const Text('Green'),
+      onPressed: () {
+        color = Colors.green.shade700;
+        Navigator.pop(context, color);
+      }),
+    ElevatedButton(
+      child: const Text('Blue'),
+      onPressed: () {
+        color = Colors.blue.shade700;
+        Navigator.pop(context, color);
+      }),
+  ],
+```
+
+#### Demo
+
+<img src="images/soal16.gif" alt="Capture no 6" width="300">
