@@ -413,6 +413,8 @@ Yang terjadi saat klik button :
 
 - Setiap button warna ketika di klik akan mengubah warna background First Screen lalu menutup Second Screen dan kembali ke First Screen dengan warna baru
 
+Mengapa bisa begitu?
+
 ```dart
   Future _navigateAndGetColor(BuildContext context) async {
     color =
