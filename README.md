@@ -313,3 +313,52 @@ Iyaa, koordinat GPS didapatkan ketika menjalankan aplikasi di browser karena beb
 #### Demo
 
 <img src="images/soal12.gif" alt="Capture no 6" width="300">
+
+### Soal no 13
+
+- Apakah ada perbedaan UI dengan praktikum sebelumnya? mengapa demikian?
+
+Iyaa, ada sedikit perbedaan UI dengan praktikum sebelumnya karena beberapa faktor :
+
+1. Struktur widget yang berbeda
+
+```dart
+// Praktikum Sebelumnya
+final myWidget = myPosition == ''
+    ? const CircularProgressIndicator()
+    : Text(myPosition);
+
+// Praktikum Sekarang
+child: FutureBuilder(
+  future: position,
+  builder: (BuildContext context, AsyncSnapshot<Position> snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return const CircularProgressIndicator();
+    } else if (snapshot.connectionState == ConnectionState.done) {
+      return Text(snapshot.data.toString());
+    } else {
+      return const Text('');
+    }
+  }),
+```
+
+2. Perbedaan Pendekatan
+
+- Sebelumnya menggunakan variabel myPosition untuk menentukan tampilan
+- Sekarang menggunakan FutureBuilder yang langsung mengelola state dari Future
+
+3. Alasan Perbedaan
+
+- FutureBuilder lebih tepat untuk menangani async operations
+- Memberikan kontrol lebih baik atas state loading
+- Tidak perlu manual update variabel myPosition
+
+4. Keuntungan Menggunakkan FutureBuilder
+
+- Otomatis menangani state loading
+- Build in error handling
+- Reactive terhadap perubahan Future
+
+#### Demo
+
+<img src="images/soal13.gif.gif" alt="Capture no 6" width="300">
