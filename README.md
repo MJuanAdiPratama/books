@@ -469,3 +469,84 @@ Berikut untuk mengganti 3 warna dengan warna favorit pada langkah ke 5 :
 #### Demo
 
 <img src="images/soal16.gif" alt="Capture no 6" width="300">
+
+### Soal no 17
+
+Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+
+**Apa yang Terjadi?**
+Ketika mengklik button pada Alert Dialog:
+
+1. Button "Change Color"
+
+- Membuka Alert Dialog
+- Menampilkan 3 pilihan warna
+- Barrier menghalangi interaksi dengan screen di belakangnya
+
+2. Button Warna (Red/Green/Blue)
+
+- Mengubah warna background Scaffold
+- Menutup Alert Dialog
+- Kembali ke screen utama dengan warna baru
+
+**Mengapa Hal Ini Terjadi?**
+
+```dart
+  TextButton(
+    child: const Text('Red'),
+    onPressed: () {
+      color = Colors.red.shade700; // set warna baru
+      Navigator.pop(context, color); // tutup dialog
+    },
+  ),
+```
+
+Proses yang terjadi:
+
+1. State Management
+
+- Variable color diupdate dengan warna baru
+- setState() dipanggil setelah dialog ditutup
+- Trigger rebuild widget dengan warna baru
+
+2. Dialog Control
+
+- barrierDismissible: false mencegah dialog ditutup dengan tap di luar
+- Navigator.pop() menutup dialog secara programatis
+- Warna diteruskan kembali ke screen utama
+
+3. UI Update
+
+- backgroundColor: color pada Scaffold menggunakan warna yang dipilih
+- Widget tree di-rebuild dengan warna baru
+- Transisi warna terjadi secara instan
+
+Mengganti 3 warna pada langkah 3 dengan warna favorit!
+
+```dart
+  TextButton(
+    child: const Text('Red'),
+    onPressed: () {
+      color = Colors.red.shade700;
+      Navigator.pop(context, color);
+    },
+  ),
+  TextButton(
+    child: const Text('Green'),
+    onPressed: () {
+      color = Colors.green.shade700;
+      Navigator.pop(context, color);
+    },
+  ),
+  TextButton(
+    child: const Text('Blue'),
+    onPressed: () {
+      color = Colors.blue.shade700;
+      Navigator.pop(context, color);
+    },
+  ),
+```
+
+#### Demo
+
+<img src="images/soal17.gif" alt="Capture no 6" width="300">
