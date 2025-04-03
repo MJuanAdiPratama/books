@@ -361,4 +361,4 @@ child: FutureBuilder(
 
 #### Demo
 
-<img src="images/soal13.gif.gif" alt="Capture no 6" width="300">
+<img src="images/soal13.gif" alt="Capture no 6" width="300">
