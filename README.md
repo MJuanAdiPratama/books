@@ -381,3 +381,18 @@ Tidak ada perubahan UI jika tidak ada error, mengapa tidak ada perubahan :
 #### Demo
 
 <img src="images/soal13.gif" alt="Capture no 6" width="300">
+
+### Soal no 15
+
+Menambahkan nama panggilan anda pada tiap properti title di class NavigationFirst sebagai identitas pekerjaan
+
+```dart
+  appBar: AppBar(
+    title: const Text('Navigation First Screen Juan')
+  ),
+```
+
+Mengganti dengan warna favorit
+```dart
+  Color color = Colors.cyan.shade700;
+```
